@@ -1,0 +1,217 @@
+<html>
+<!-- Head tag -->
+<head>
+  <meta charset="UTF-8">
+
+  
+  <title>
+    hexo与github搭建博客、修改主题、更新内容及解决图片无法加载 |
+    李梦迪的网页博客
+  </title>
+  
+
+
+  <meta name="description" content="好事总会发生在下个转弯">
+  <meta name="author" content="Li Mengdi">
+  <meta property="og:title" content="hexo与github搭建博客、修改主题、更新内容及解决图片无法加载" />
+  <meta property="og:description" content="好事总会发生在下个转弯" />
+  <meta property='og:site_name' content='李梦迪的网页博客' />
+  <meta property="og:image" content="http://example.com/img/default.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:description" content="好事总会发生在下个转弯" />
+  <meta name="twitter:title" content="hexo与github搭建博客、修改主题、更新内容及解决图片无法加载" />
+
+  <meta name="twitter:image" content="http://example.com/img/default.jpg" />
+
+  <script src="https://www.amcharts.com/lib/4/core.js"></script>
+  <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+  <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <!-- Menu -->
+    <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark page-navbar gradient">
+  <div class="container">
+    <a class="navbar-brand logo" href="http://example.com">
+      李梦迪的网页博客</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item item">
+          
+        <li class="nav-item item">
+          <a class="nav-link" href="/">
+            Home</a>
+        </li>
+        
+        <li class="nav-item item">
+          <a class="nav-link" href="/archives">
+            🗂️Archives</a>
+        </li>
+        
+        <li class="nav-item item">
+          <a class="nav-link" target="_blank" rel="noopener" href="https://hexo.io/">
+            Hexo</a>
+        </li>
+        
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <main class="page main-page">
+        <div class="container blogPost">
+    <div class="row">
+        <div class="col-sm-9 px-md-5">
+            <h2 class="blog-post-title">
+                hexo与github搭建博客、修改主题、更新内容及解决图片无法加载
+            </h2>
+            <p class="meta">
+                <i class="far fa-clock"></i>
+                2023-01-14 
+            </p>
+            <!-- Content -->
+            <h1 id="hexo-github搭建博客、修改主题、更新内容及解决图片无法加载"><a href="#hexo-github搭建博客、修改主题、更新内容及解决图片无法加载" class="headerlink" title="hexo+github搭建博客、修改主题、更新内容及解决图片无法加载"></a>hexo+github搭建博客、修改主题、更新内容及解决图片无法加载</h1><h2 id="在本地搭建博客"><a href="#在本地搭建博客" class="headerlink" title="在本地搭建博客"></a>在本地搭建博客</h2><p>本地博客的搭建主要参考<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mU4y1j72n?p=1&vd_source=765d56c958a80a8ea382c4e203764281">b站up主：火_花喔的教程</a><br>在本地搭建博客需要git、nodejs(包括npm)、hexo等工具。（下载安装参考上面链接的视频）全部下载安装之后。</p>
+<ol>
+<li>新建一个文件夹 </li>
+<li>在该文件夹中右击进行<code>git bash here</code> </li>
+<li>在新打开的黑框框中运行</li>
+</ol>
+<p>he</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init <span class="comment">#初始化hexo</span></span><br></pre></td></tr></table></figure>
+<p>生成如下：<br><img src="https://img-blog.csdnimg.cn/580e247b9a54453a865dcd35b126a586.png#pic_center" alt="在这里插入图片描述"><br>继续运行如下命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s <span class="comment">#启动本地hexo服务器</span></span><br></pre></td></tr></table></figure>
+<p>紧接着就可以看到hello world的hexo的本地博客。<br><img src="https://img-blog.csdnimg.cn/abad3b2dc8384fc1aa3f5327921a2483.png#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="借助github发布博客到互联网"><a href="#借助github发布博客到互联网" class="headerlink" title="借助github发布博客到互联网"></a>借助github发布博客到互联网</h2><p>借助github发布博客到互联网主要参考<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mU4y1j72n?p=1&vd_source=765d56c958a80a8ea382c4e203764281">b站up主：火_花喔的教程</a><br>在github中建立一个仓库，并把github作为服务器使得其他人也能够访问到（github服务器在国外，因此也可以选用gitee，操作应该类似）。具体的操作方法见上面的视频链接教程，作者很贴心地指出了github最近的变化。但在2023年的今天，github在链接本地和仓库时，并不需要像视频作者一样输很长的令牌密码，而只需要在弹出来的框中输入github账号和密码即可，操作的时候就会明白了。</p>
+<h2 id="修改文章内容并更新到网页端"><a href="#修改文章内容并更新到网页端" class="headerlink" title="修改文章内容并更新到网页端"></a>修改文章内容并更新到网页端</h2><p>修改文章的内容只需要找到对应文章的markdown文件进行修改，如图所示<br><img src="https://img-blog.csdnimg.cn/253b6c88e45540b0b58599dce8c49cbb.png#pic_center" alt="在这里插入图片描述"><br>简单一点的可以用记事本进行编辑，也可以用typora等markdown编辑器进行编辑。在编辑完保存之后，可以执行以下命令</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g <span class="comment"># 生成静态文件</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s <span class="comment"># 通过启动本地服务器，预览文章效果</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d <span class="comment"># 部署到github中，更新网页端的内容</span></span><br></pre></td></tr></table></figure>
+<p>过一两分刷新自己的博客网址就会发现内容已经更新了。</p>
+<h2 id="hexo博客加载图片"><a href="#hexo博客加载图片" class="headerlink" title="hexo博客加载图片"></a>hexo博客加载图片</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>网上有非常多的教程记录了如何在hexo中加载图片，但是翻来覆去也就是那几篇文章，而且有很多是错误的或者不适用于现在。</p>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>在通过hexo+github搭建过博客之后，我尝试进行内容的创作。其中免不了加载图片。然后根据一些博客的说明，我的图片加载不出来，经过查阅大量类似的教程后，摸索出来并记录。<br>首先，有很多教程hexo加载图片使用这样的格式：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片描述](图片地址[title])</span><br></pre></td></tr></table></figure>
+<p>经过我操作之后，发现并不可行，浪费了我很多时间 ，觉得自己有点智障。只需要</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片描述](图片地址)</span><br></pre></td></tr></table></figure>
+<p>即可显示图片。<br>另外在加载图片时，如果遇到图片无法加载的情况时，可以按F12将网页的源代码调出来，看看图片的访问路径是否与你存储的路径一致。示例如下：<br><img src="https://img-blog.csdnimg.cn/7c41f00fb35543568d03ccfab1d574a5.png#pic_center" alt="在这里插入图片描述"></p>
+<p>对于hexo加载图片，网上也有很多教程处理无法加载的情况，这里给出一个链接，<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/542101567">hexo图片插入无法显示</a>，这篇文章还算可以，可以尝试其中的方法。</p>
+<h2 id="修改博客的主题"><a href="#修改博客的主题" class="headerlink" title="修改博客的主题"></a>修改博客的主题</h2><p>hexo提供了大量的精美主题供我们使用。<a target="_blank" rel="noopener" href="https://hexo.io/themes/">hexo主题网站</a></p>
+<ul>
+<li>通过git clone的方法下载自己喜欢的主题。在themes文件夹下，<code>git bash here</code></li>
+<li>然后运行<code>git clone 主题网址</code>，下载主题</li>
+<li>修改_config.yml文件，将主题名改为下载的主题名<br>  <img src="https://img-blog.csdnimg.cn/eabb1b29999c44f89cbd76604cf2ec5d.png#pic_center" alt="在这里插入图片描述"><br> 按照更新文章内容的步骤更新到网页端，也可以现在本地查看一下，主题修改是否成功。<br> 我随便选择了一个海洋的主题，如下图所示。其中海浪还是流动的，比较带感。<br> 修改主题也附上别人的一篇教程：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/137338730">hexo修改主题</a></li>
+</ul>
+<h2 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h2><ul>
+<li>修改yml文件时，要注意冒号后是存在一个空格的。</li>
+<li>由于github和hexo的更新，网上许多教程可能都有些许的问题，尽量看日期较近的文章擦模考。有能力的话看官方文档。</li>
+<li>如下两个命令行窗口好像不是一个东西？被坑惨了。<br><img src="https://img-blog.csdnimg.cn/8e67f29b1466446cb8bacd42289c270a.png#pic_center" alt="在这里插入图片描述"><br>通过本篇文章及链接的文章，应该能够搭建基本的个人博客。<br>如果觉得我写的不错，请给我一个免费的赞，如有错误，也欢迎向我反馈。</li>
+</ul>
+
+            <br />
+            <p class="meta">
+                
+            </p>
+        </div>
+
+        <div class="col-sm-3">
+             
+<span><b> TL;DR</b></span>
+<p>
+	Yet another hexo theme.
+</p>
+<hr />
+
+
+<span><b> TL;DR 2</b></span>
+<p>
+	No, not another one :/
+</p>
+<hr />
+
+ 
+
+<span
+	><a href="https://twitter.com/hexojs" target="_blank" rel="noopener"
+		><b
+			><i class="fab fa-twitter-square"></i>
+			<i class="fas fa-at"></i>
+			hexojs</b
+		></a
+	></span
+>
+<br />
+<a class="twitter-timeline" data-height="800" data-dnt="true" data-chrome="nofooter transparent noheader noborders " target="_blank" rel="noopener" href="https://twitter.com/hexojs?ref_src=twsrc%5Etfw"></a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+        </div>
+    </div>
+</div>
+<!-- Menu fade on scroll -->
+<script>
+    var isScrolling;
+    var prevScrollpos = window.pageYOffset;
+    window.addEventListener(
+        'scroll',
+        function(event) {
+            window.clearTimeout(isScrolling);
+            isScrolling = setTimeout(function() {
+                var currentScrollPos = window.pageYOffset;
+                if (prevScrollpos > currentScrollPos) {
+                    $('#navbar').slideDown();
+                } else {
+                    $('#navbar').slideUp();
+                }
+                prevScrollpos = currentScrollPos;
+            }, 66);
+        },
+        false
+    );
+</script>
+
+
+<a class="float-left gradient btn paginationbtn" href="/2023/01/11/test2/"><i class="fas fa-chevron-left"></i></a>
+
+
+<a class="float-right gradient btn paginationbtn" href="/2023/01/14/Datasets-and-Metrics-for-3D-object-detection自动驾驶领域的数据集/"><i class="fas fa-chevron-right"></i></a>
+
+    </main>
+    <!-- Footer -->
+    <footer class="page-footer">
+  <div class="container">
+    <div class="social-icons">
+      
+      <a href="https://hexo.io/" title="Hexo.io" target="_blank" rel="noopener" class="fas fa-home"></a>
+      
+      <a href="https://twitter.com/hexojs" title="@hexojs" target="_blank" rel="noopener" class="fab fa-twitter"></a>
+      
+      <a href="https://github.com/RandomAdversary/Gradient/issues" title="Report issue" target="_blank" rel="noopener" class="fas fa-bug"></a>
+      
+    </div>
+  </div>
+</footer>
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

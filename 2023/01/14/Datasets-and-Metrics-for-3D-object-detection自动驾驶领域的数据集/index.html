@@ -5,7 +5,7 @@
 
   
   <title>
-    明焕焕的上班生活 |
+    Datasets-and-Metrics-for-3D-object-detection自动驾驶领域的数据集 |
     李梦迪的网页博客
   </title>
   
@@ -13,13 +13,13 @@
 
   <meta name="description" content="好事总会发生在下个转弯">
   <meta name="author" content="Li Mengdi">
-  <meta property="og:title" content="明焕焕的上班生活" />
+  <meta property="og:title" content="Datasets-and-Metrics-for-3D-object-detection自动驾驶领域的数据集" />
   <meta property="og:description" content="好事总会发生在下个转弯" />
   <meta property='og:site_name' content='李梦迪的网页博客' />
   <meta property="og:image" content="http://example.com/img/default.jpg" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:description" content="好事总会发生在下个转弯" />
-  <meta name="twitter:title" content="明焕焕的上班生活" />
+  <meta name="twitter:title" content="Datasets-and-Metrics-for-3D-object-detection自动驾驶领域的数据集" />
 
   <meta name="twitter:image" content="http://example.com/img/default.jpg" />
 
@@ -77,20 +77,31 @@
     <div class="row">
         <div class="col-sm-9 px-md-5">
             <h2 class="blog-post-title">
-                明焕焕的上班生活
+                Datasets-and-Metrics-for-3D-object-detection自动驾驶领域的数据集
             </h2>
             <p class="meta">
                 <i class="far fa-clock"></i>
-                2023-01-11 
+                2023-01-14 
             </p>
             <!-- Content -->
-            <p>欢迎来到明焕焕的上班生活记录网站，这里可以看到明焕焕的日常生活动态。</p>
-<h2 id="明焕焕的生活照"><a href="#明焕焕的生活照" class="headerlink" title="明焕焕的生活照"></a>明焕焕的生活照</h2><p><img src="/2023/01/11/test2/huanhuan1.jpg" alt="帅气的焕焕"><br><img src="/2023/01/11/test2/huanhuan1.jpg" alt="帅气的焕焕"><br><img src="/./images/huanhuan1.jpg" alt="帅气的焕焕"></p>
-<h2 id="雪地焕"><a href="#雪地焕" class="headerlink" title="雪地焕"></a>雪地焕</h2> <video width="720" height="1280" controls>
- <source src="‪/2023/01/11/test2/huanhuan2.mp4">
- </video>
-<video src="F:\blog\source\_posts\test2\huanhuan2.mp4" position="absolute" width="100%" height="100%" controls="controls"></video>
-<video src="‪2023/01/11/test2/huanhuan2.mp4" position="absolute" width="100%" height="100%" controls="controls"></video>
+            <p>@[TOC](Datasets and Metrics for 3D object detection自动驾驶领域的数据集)</p>
+<p>主流多模态数据集的比较如下表：<br><img src="https://img-blog.csdnimg.cn/31407e70173e4470bb17a70da66c7d00.png#pic_center" alt="主流多模态数据集的比较"></p>
+<h1 id="KITTI"><a href="#KITTI" class="headerlink" title="KITTI"></a>KITTI</h1><p>自动驾驶领域最早的数据集之一，该数据集提供立体彩色图像，激光雷达点云和GPS坐标。该数据集支持多种任务，包括立体匹配，视觉里程计，3D跟踪和3D目标检测等。</p>
+<p>该数据使用搭载64线激光雷达、4个相机和GPS&#x2F;IMU组合系统的车进行收集数据。拥有包含城市、住宅和道路的超20个场景。</p>
+<p>KITTI标注了汽车”，“面包车”，“卡车”，“行人”，“人(坐着)”，“骑自行车的人”，“有轨电车”和“杂项”。</p>
+<p>同时为了针对多模式检测，KITTI开发了KITTI360，该数据集带有更丰富的传感器信息，并且360度标注。</p>
+<p>mAP是常用的目标检测指标，mAP(mean Average Precision)，在这里不做展开。</p>
+<h1 id="NuScenes"><a href="#NuScenes" class="headerlink" title="NuScenes"></a>NuScenes</h1><p>具有地面真实标签的自动驾驶领域最大数据集之一。包括700个训练场景、150个验证场景和150个测试场景。</p>
+<p>该数据集使用32线激光雷达、6个相机，提供了360度视野内的23个种类的标注。是第一个提供雷达数据的自动驾驶数据集，装备了5个雷达传感器</p>
+<h1 id="Waymo-Open-Dataset"><a href="#Waymo-Open-Dataset" class="headerlink" title="Waymo Open Dataset"></a>Waymo Open Dataset</h1><p>装备5个激光雷达传感器、5个针孔摄像机，支持领域适应（Domain adaptation ）</p>
+<h1 id="other-Datasets"><a href="#other-Datasets" class="headerlink" title="other Datasets"></a>other Datasets</h1><h2 id="ApolloScape"><a href="#ApolloScape" class="headerlink" title="ApolloScape"></a>ApolloScape</h2><p>包含了来自中国4个不同地区的天气情况。数据使用搭载了两个激光雷达传感器、6个摄像机和一个IMU&#x2F;GNSS联合系统的SUV进行获取。它支持各种自动驾驶任务，如场景解析，车道分割，轨迹预测，目标检测，跟踪等。</p>
+<p>评价指标与KITTI相同</p>
+<h2 id="H3D"><a href="#H3D" class="headerlink" title="H3D"></a>H3D</h2><p>该数据集关注城市拥挤的交通场景。数据使用3台260度的视场相机和一台64线的激光雷达收集数据</p>
+<h2 id="Argoverse"><a href="#Argoverse" class="headerlink" title="Argoverse"></a>Argoverse</h2><p>它使用两个32通道激光雷达、七个环绕视摄像头和两个立体摄像头收集数据</p>
+<h2 id="AIODrive"><a href="#AIODrive" class="headerlink" title="AIODrive"></a>AIODrive</h2><p>它综合来自多个常用传感器的数据，包括3个高密度激光雷达，一个Velodyne-64激光雷达，5个高分辨率RGB相机，5个高分辨率深度相机，4个雷达，一个IMU和GPS系统。它还合成了一些不利的场景，如恶劣的天气条件或车祸。</p>
+<p>上述数据集都需要进行数据标注，而高质量的数据标注是一项花费巨大的任务。现如今，也有学者使用迁移学习技术减少对于地面标签的依赖性。</p>
+<p>如果觉得我写的不错，请给我一个免费的赞，如有错误，也欢迎向我反馈。<br>参考文献：<br>Wang Y, Mao Q, Zhu H, et al. Multi-modal 3d object detection in autonomous driving: a survey[J]. arXiv preprint arXiv:2106.12735, 2021.</p>
+
             <br />
             <p class="meta">
                 
@@ -154,10 +165,10 @@
 </script>
 
 
-<a class="float-left gradient btn paginationbtn" href="/2023/01/11/hello-world/"><i class="fas fa-chevron-left"></i></a>
+<a class="float-left gradient btn paginationbtn" href="/2023/01/14/hexo与github搭建博客、修改主题、更新内容及解决图片无法加载/"><i class="fas fa-chevron-left"></i></a>
 
 
-<a class="float-right gradient btn paginationbtn" href="/2023/01/14/hexo与github搭建博客、修改主题、更新内容及解决图片无法加载/"><i class="fas fa-chevron-right"></i></a>
+<a class="float-right gradient btn paginationbtn" href="/2023/01/14/异构系统中的UUV、异构系统模型统一化及单应矩阵在异构系统中的应用/"><i class="fas fa-chevron-right"></i></a>
 
     </main>
     <!-- Footer -->

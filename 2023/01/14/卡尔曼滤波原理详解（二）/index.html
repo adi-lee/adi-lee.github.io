@@ -1,0 +1,205 @@
+<html>
+<!-- Head tag -->
+<head>
+  <meta charset="UTF-8">
+
+  
+  <title>
+    李梦迪的网页博客 -
+    好事总会发生在下个转弯
+  </title>
+  
+
+
+  <meta name="description" content="好事总会发生在下个转弯">
+  <meta name="author" content="Li Mengdi">
+  <meta property="og:title" content="李梦迪的网页博客" />
+  <meta property="og:description" content="好事总会发生在下个转弯" />
+  <meta property='og:site_name' content='李梦迪的网页博客' />
+  <meta property="og:image" content="http://example.com/img/default.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:description" content="好事总会发生在下个转弯" />
+  <meta name="twitter:title" content="李梦迪的网页博客" />
+
+  <meta name="twitter:image" content="http://example.com/img/default.jpg" />
+
+  <script src="https://www.amcharts.com/lib/4/core.js"></script>
+  <script src="https://www.amcharts.com/lib/4/charts.js"></script>
+  <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+    <!-- Menu -->
+    <nav id="navbar" class="navbar fixed-top navbar-expand-lg navbar-dark page-navbar gradient">
+  <div class="container">
+    <a class="navbar-brand logo" href="http://example.com">
+      李梦迪的网页博客</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item item">
+          
+        <li class="nav-item item">
+          <a class="nav-link" href="/">
+            Home</a>
+        </li>
+        
+        <li class="nav-item item">
+          <a class="nav-link" href="/archives">
+            🗂️Archives</a>
+        </li>
+        
+        <li class="nav-item item">
+          <a class="nav-link" target="_blank" rel="noopener" href="https://hexo.io/">
+            Hexo</a>
+        </li>
+        
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <main class="page main-page">
+        <div class="container blogPost">
+    <div class="row">
+        <div class="col-sm-9 px-md-5">
+            <h2 class="blog-post-title">
+                
+            </h2>
+            <p class="meta">
+                <i class="far fa-clock"></i>
+                2023-01-14 
+            </p>
+            <!-- Content -->
+            <p>@<a href="%E5%8D%A1%E5%B0%94%E6%9B%BC%E6%BB%A4%E6%B3%A2%E5%8E%9F%E7%90%86%E8%AF%A6%E8%A7%A3%EF%BC%88%E4%BA%8C%EF%BC%89">TOC</a></p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文是对卡尔曼滤波学习的记录，主要参照了DR_CAN老师的视频进行学习。视频专栏链接：DR_CAN卡尔曼滤波视频专栏。虽然网上有很多卡尔曼滤波原理介绍的相关博客，但像DR_CAN老师讲解的如此详细的却不多，我也将自己跟随老师学习的记录下来。<br>本篇文章为卡尔曼滤波原理详解的第二篇，第一篇链接在此：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45830323/article/details/127230408?spm=1001.2014.3001.5501">卡尔曼滤波原理详解（一）</a></p>
+<h1 id="卡尔曼增益推导"><a href="#卡尔曼增益推导" class="headerlink" title="卡尔曼增益推导"></a>卡尔曼增益推导</h1><p>继续紧接上一篇推导卡尔曼增益。<br>根据前文我们引入的例子及数据融合的思想，我们给出了一个系统的状态空间表达式来描述一个系统的动态响应<br><img src="https://img-blog.csdnimg.cn/b215f36e83364d5c943e43b0db5043b4.png" alt="在这里插入图片描述"></p>
+<p>不考虑过程噪声，通过上述公式(1.13)所估算出来的$X_k$，我们记为先验估计值 $\hat X_k^-$。<br>则根据上文数据融合的思想，我们可以将后验估计值$\hat X_k$写成：<br>     	<img src="https://img-blog.csdnimg.cn/291bd2f9f76e446a82f2e5c287db8fb9.png" alt="在这里插入图片描述"></p>
+<p>其中$G\in[0,1]$ ，上述式(1.14)即是让我们在算出来的和测出来的数据之间，更倾向于相信哪个数据。一些书上有时候也将G写作$K_kH$，则<br><img src="https://img-blog.csdnimg.cn/fa58ddbedffb49c5abf313d02bd1c631.png" alt="在这里插入图片描述"></p>
+<p>那么现在的目标即是寻找合适的 $K_k$，使得$\hat X_k$→$X_k$的实际值。<br>令$e_k&#x3D;X_k-\hat X_k$， $e_k$满足高斯分布，满足$P(e_k)\sim(0,P)$ 。问题转换为寻找合适的$K_k$，使得$e_k$的方差最小，即$e_k$的协方差矩阵最小？<br><img src="https://img-blog.csdnimg.cn/3bb9389f00a54877b6a7d0264a2f4ad3.png" alt="在这里插入图片描述"></p>
+<p>又<br><img src="https://img-blog.csdnimg.cn/f6770649c7514e74a1580ca2ea73b8d2.png" alt="在这里插入图片描述"></p>
+<p>其中$e_k^-$示先验误差估计，则将(1.17)代入(1.16)，得到<br><img src="https://img-blog.csdnimg.cn/9e225d55a08f44d195520efd0ef779c1.png" alt="在这里插入图片描述"></p>
+<p>其中：<br><img src="https://img-blog.csdnimg.cn/c7d34be16f6544f9a8338cfcd214d7ad.png" alt="在这里插入图片描述"></p>
+<p>由于$e_k^-$与$v_k^T$互不相关，且二者期望均为0，故<br><img src="https://img-blog.csdnimg.cn/e94d9484524f431a9105ebef50d2cf1b.png" alt="在这里插入图片描述"></p>
+<p>同样地， $E[K_kv_k(I-K_kH)^Te_{k}^{-T}]&#x3D;0$，则$P_k$为：<br><img src="https://img-blog.csdnimg.cn/a2833ffd25cd4efba28d2d0eefcf929c.png" alt="在这里插入图片描述"></p>
+<p>其中$P_k^-$表示先验误差估计 $e_k^-$的协方差矩阵， R为测量噪声$v_k$的方差。注意到$P_k^-$是对称矩阵，则 <img src="https://img-blog.csdnimg.cn/4c6d0cfd6e3f4ea8bf07a099052259f1.png" alt="在这里插入图片描述"><br>。<br>则只需使$P_k$的迹最小，便可以使 $e_k$的方差最小。求式(1.21)的迹<br><img src="https://img-blog.csdnimg.cn/edfb9056b5b94c339e9cebf0b3beea18.png" alt="在这里插入图片描述"></p>
+<p>类似前一篇文章数据融合的步骤，令 $\frac{dtr(P_k)}{dK_k}&#x3D;0$，找寻其极值点。<br><img src="https://img-blog.csdnimg.cn/982edc879a054cb780db1ddbc64ad598.png" alt="在这里插入图片描述"></p>
+<p>求解，得：<br><img src="https://img-blog.csdnimg.cn/9ccc978019604f3892872703f92aad5e.png" alt="在这里插入图片描述"></p>
+<p>所求式(1.24)即为卡尔曼增益。<br>至此，我们已知一系统<br><img src="https://img-blog.csdnimg.cn/83265c43fdc046c9ba33f07366ac4339.png" alt="在这里插入图片描述"></p>
+<p>先验估计为：<br><img src="https://img-blog.csdnimg.cn/40cf6709e05a417192468f68780983bb.png" alt="在这里插入图片描述"></p>
+<p>后验估计为：<br><img src="https://img-blog.csdnimg.cn/cb8c6d925df543ce81ae27ec216d4497.png" alt="在这里插入图片描述"></p>
+<p>卡尔曼增益：<br><img src="https://img-blog.csdnimg.cn/51121d76ae2243c38a3b316abf8a1df2.png" alt="在这里插入图片描述"></p>
+<p>上述公式中 $P_k^-$（先验误差协方差）未知。<br><img src="https://img-blog.csdnimg.cn/372d492725584f699255ad8df8c05bc0.png" alt="在这里插入图片描述"></p>
+<p>又<br><img src="https://img-blog.csdnimg.cn/c08a60a4cfb0408fb447e38cafd5c322.png" alt="在这里插入图片描述"></p>
+<p>将式(1.26)代入到(1.25)中，得到：<br><img src="https://img-blog.csdnimg.cn/eeefdde2d359420e962a90597a850907.png" alt="在这里插入图片描述"></p>
+<p>其中  $e_k^-$与 $w_{k-1}^T$互不相关，且期望均为0，因此$E(Ae_{k-1}^-w_{k-1}^T)&#x3D;0$，同样地 ，则<br><img src="https://img-blog.csdnimg.cn/be2533856930498990e0582756cd84ab.png" alt="在这里插入图片描述"></p>
+<p>其中Q为测量噪声$w_k$的方差。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>至此，我们便可以利用卡尔曼滤波进行估计。主要分为两步，分别是预测和校正。<br>后续校正还需要用到后验误差协方差矩阵以便更新下一次的信息。<br>其中后验协方差矩阵的计算结合式(1.21)和卡尔曼增益(1.24)求得，具体如下：<br><img src="https://img-blog.csdnimg.cn/b5ae41bd80354490b61d96f64d721b75.png" alt="在这里插入图片描述"></p>
+<p>至此，卡尔曼滤波的五个公式全部推导完毕，如下表所示。<br><img src="https://img-blog.csdnimg.cn/2b38477d85e849dea3e09068ff8e1bc2.png" alt="在这里插入图片描述"><br>至此，卡尔曼滤波的原理讲解就记录到这里了，强烈建议观看DR_CAN老师的视频教程！</p>
+
+            <br />
+            <p class="meta">
+                
+            </p>
+        </div>
+
+        <div class="col-sm-3">
+             
+<span><b> TL;DR</b></span>
+<p>
+	Yet another hexo theme.
+</p>
+<hr />
+
+
+<span><b> TL;DR 2</b></span>
+<p>
+	No, not another one :/
+</p>
+<hr />
+
+ 
+
+<span
+	><a href="https://twitter.com/hexojs" target="_blank" rel="noopener"
+		><b
+			><i class="fab fa-twitter-square"></i>
+			<i class="fas fa-at"></i>
+			hexojs</b
+		></a
+	></span
+>
+<br />
+<a class="twitter-timeline" data-height="800" data-dnt="true" data-chrome="nofooter transparent noheader noborders " target="_blank" rel="noopener" href="https://twitter.com/hexojs?ref_src=twsrc%5Etfw"></a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+        </div>
+    </div>
+</div>
+<!-- Menu fade on scroll -->
+<script>
+    var isScrolling;
+    var prevScrollpos = window.pageYOffset;
+    window.addEventListener(
+        'scroll',
+        function(event) {
+            window.clearTimeout(isScrolling);
+            isScrolling = setTimeout(function() {
+                var currentScrollPos = window.pageYOffset;
+                if (prevScrollpos > currentScrollPos) {
+                    $('#navbar').slideDown();
+                } else {
+                    $('#navbar').slideUp();
+                }
+                prevScrollpos = currentScrollPos;
+            }, 66);
+        },
+        false
+    );
+</script>
+
+
+<a class="float-left gradient btn paginationbtn" href="/2023/01/14/激光雷达方程推导与激光器参数指标/"><i class="fas fa-chevron-left"></i></a>
+
+
+<a class="float-right gradient btn paginationbtn" href="/2023/01/14/双模型法离线神经网络辨识非线性动态系统/"><i class="fas fa-chevron-right"></i></a>
+
+    </main>
+    <!-- Footer -->
+    <footer class="page-footer">
+  <div class="container">
+    <div class="social-icons">
+      
+      <a href="https://hexo.io/" title="Hexo.io" target="_blank" rel="noopener" class="fas fa-home"></a>
+      
+      <a href="https://twitter.com/hexojs" title="@hexojs" target="_blank" rel="noopener" class="fab fa-twitter"></a>
+      
+      <a href="https://github.com/RandomAdversary/Gradient/issues" title="Report issue" target="_blank" rel="noopener" class="fas fa-bug"></a>
+      
+    </div>
+  </div>
+</footer>
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
