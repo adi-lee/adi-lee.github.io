@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="好事总会发生在下个转弯">
+  
+  <title>
+    hexo与github搭建博客、修改主题、更新内容及解决图片无法加载 |
+    
+    李梦迪的网页博客
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-hexo与github搭建博客、修改主题、更新内容及解决图片无法加载" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+  <h1 class="article-title" itemprop="name">
+    hexo与github搭建博客、修改主题、更新内容及解决图片无法加载
+  </h1>
+  
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2023/01/14/hexo%E4%B8%8Egithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E3%80%81%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98%E3%80%81%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD/" class="article-date">
+  <time datetime="2023-01-14T07:41:01.000Z" itemprop="datePublished">2023-01-14</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+        <h1 id="hexo-github搭建博客、修改主题、更新内容及解决图片无法加载"><a href="#hexo-github搭建博客、修改主题、更新内容及解决图片无法加载" class="headerlink" title="hexo+github搭建博客、修改主题、更新内容及解决图片无法加载"></a>hexo+github搭建博客、修改主题、更新内容及解决图片无法加载</h1><h2 id="在本地搭建博客"><a href="#在本地搭建博客" class="headerlink" title="在本地搭建博客"></a>在本地搭建博客</h2><p>本地博客的搭建主要参考<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mU4y1j72n?p=1&vd_source=765d56c958a80a8ea382c4e203764281">b站up主：火_花喔的教程</a><br>在本地搭建博客需要git、nodejs(包括npm)、hexo等工具。（下载安装参考上面链接的视频）全部下载安装之后。</p>
+<ol>
+<li>新建一个文件夹 </li>
+<li>在该文件夹中右击进行<code>git bash here</code> </li>
+<li>在新打开的黑框框中运行</li>
+</ol>
+<span id="more"></span>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init <span class="comment">#初始化hexo</span></span><br></pre></td></tr></table></figure>
+<p>生成如下：<br><img src="https://img-blog.csdnimg.cn/580e247b9a54453a865dcd35b126a586.png#pic_center" alt="在这里插入图片描述"></p>
+<p>继续运行如下命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s <span class="comment">#启动本地hexo服务器</span></span><br></pre></td></tr></table></figure>
+<p>紧接着就可以看到hello world的hexo的本地博客。<br><img src="https://img-blog.csdnimg.cn/abad3b2dc8384fc1aa3f5327921a2483.png#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="借助github发布博客到互联网"><a href="#借助github发布博客到互联网" class="headerlink" title="借助github发布博客到互联网"></a>借助github发布博客到互联网</h2><p>借助github发布博客到互联网主要参考<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1mU4y1j72n?p=1&vd_source=765d56c958a80a8ea382c4e203764281">b站up主：火_花喔的教程</a><br>在github中建立一个仓库，并把github作为服务器使得其他人也能够访问到（github服务器在国外，因此也可以选用gitee，操作应该类似）。具体的操作方法见上面的视频链接教程，作者很贴心地指出了github最近的变化。但在2023年的今天，github在链接本地和仓库时，并不需要像视频作者一样输很长的令牌密码，而只需要在弹出来的框中输入github账号和密码即可，操作的时候就会明白了。</p>
+<h2 id="修改文章内容并更新到网页端"><a href="#修改文章内容并更新到网页端" class="headerlink" title="修改文章内容并更新到网页端"></a>修改文章内容并更新到网页端</h2><p>修改文章的内容只需要找到对应文章的markdown文件进行修改，如图所示<br><img src="https://img-blog.csdnimg.cn/253b6c88e45540b0b58599dce8c49cbb.png#pic_center" alt="在这里插入图片描述"><br>简单一点的可以用记事本进行编辑，也可以用typora等markdown编辑器进行编辑。在编辑完保存之后，可以执行以下命令</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g <span class="comment"># 生成静态文件</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s <span class="comment"># 通过启动本地服务器，预览文章效果</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d <span class="comment"># 部署到github中，更新网页端的内容</span></span><br></pre></td></tr></table></figure>
+<p>过一两分刷新自己的博客网址就会发现内容已经更新了。</p>
+<h2 id="hexo博客加载图片"><a href="#hexo博客加载图片" class="headerlink" title="hexo博客加载图片"></a>hexo博客加载图片</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>网上有非常多的教程记录了如何在hexo中加载图片，但是翻来覆去也就是那几篇文章，而且有很多是错误的或者不适用于现在。</p>
+<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>在通过hexo+github搭建过博客之后，我尝试进行内容的创作。其中免不了加载图片。然后根据一些博客的说明，我的图片加载不出来，经过查阅大量类似的教程后，摸索出来并记录。<br>首先，有很多教程hexo加载图片使用这样的格式：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片描述](图片地址[title])</span><br></pre></td></tr></table></figure>
+<p>经过我操作之后，发现并不可行，浪费了我很多时间 ，觉得自己有点智障。只需要</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片描述](图片地址)</span><br></pre></td></tr></table></figure>
+<p>即可显示图片。<br>另外在加载图片时，如果遇到图片无法加载的情况时，可以按F12将网页的源代码调出来，看看图片的访问路径是否与你存储的路径一致。示例如下：<br><img src="https://img-blog.csdnimg.cn/7c41f00fb35543568d03ccfab1d574a5.png#pic_center" alt="在这里插入图片描述"></p>
+<p>对于hexo加载图片，网上也有很多教程处理无法加载的情况，这里给出一个链接，<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/542101567">hexo图片插入无法显示</a>，这篇文章还算可以，可以尝试其中的方法。</p>
+<h2 id="修改博客的主题"><a href="#修改博客的主题" class="headerlink" title="修改博客的主题"></a>修改博客的主题</h2><p>hexo提供了大量的精美主题供我们使用。<a target="_blank" rel="noopener" href="https://hexo.io/themes/">hexo主题网站</a></p>
+<ul>
+<li>通过git clone的方法下载自己喜欢的主题。在themes文件夹下，<code>git bash here</code></li>
+<li>然后运行<code>git clone 主题网址</code>，下载主题</li>
+<li>修改_config.yml文件，将主题名改为下载的主题名<br>  <img src="https://img-blog.csdnimg.cn/eabb1b29999c44f89cbd76604cf2ec5d.png#pic_center" alt="在这里插入图片描述"><br> 按照更新文章内容的步骤更新到网页端，也可以现在本地查看一下，主题修改是否成功。<br> 我随便选择了一个海洋的主题，如下图所示。其中海浪还是流动的，比较带感。<br> 修改主题也附上别人的一篇教程：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/137338730">hexo修改主题</a></li>
+</ul>
+<h2 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h2><ul>
+<li>修改yml文件时，要注意冒号后是存在一个空格的。</li>
+<li>由于github和hexo的更新，网上许多教程可能都有些许的问题，尽量看日期较近的文章擦模考。有能力的话看官方文档。</li>
+<li>如下两个命令行窗口好像不是一个东西？被坑惨了。<br><img src="https://img-blog.csdnimg.cn/8e67f29b1466446cb8bacd42289c270a.png#pic_center" alt="在这里插入图片描述"><br>通过本篇文章及链接的文章，应该能够搭建基本的个人博客。<br>如果觉得我写的不错，请给我一个免费的赞，如有错误，也欢迎向我反馈。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://adi-lee.github.io/2023/01/14/hexo%E4%B8%8Egithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E3%80%81%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98%E3%80%81%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD/" data-id="clwlubo000003a8kk709s219p" class="article-share-link">
+        Share
+      </a>
+      
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2023/01/14/Datasets-and-Metrics-for-3D-object-detection%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E9%A2%86%E5%9F%9F%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/" class="article-nav-link">
+    <strong class="article-nav-caption">Newer</strong>
+    <div class="article-nav-title">
+      
+      Datasets-and-Metrics-for-3D-object-detection自动驾驶领域的数据集
+      
+    </div>
+  </a>
+  
+  
+</nav>
+
+  
+
+  
+  
+  
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '2c4459cd8b921dbbe92d',
+    clientSecret: 'fac51ebfc11c6b641887cb846b954f19f08a8def',
+    repo: 'gitalk-of-blog',
+    owner: 'adi-lee',
+    admin: ['adi-lee'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>李梦迪的网页博客 &copy; 2024</li>
+      
+        <li>
+          
+            <a href="https://beian.miit.gov.cn/" target="_blank"></a>
+            
+        </li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+    <p><ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt tooltip" data-tooltip="UV"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark tooltip" data-tooltip="PV"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul></p>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="李梦迪的网页博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

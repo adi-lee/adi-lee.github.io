@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="好事总会发生在下个转弯">
+  
+  <title>
+    异构模型统一化方法（heterogeneous multi-agent） |
+    
+    李梦迪的网页博客
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-异构模型统一化方法" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+  <h1 class="article-title" itemprop="name">
+    异构模型统一化方法（heterogeneous multi-agent）
+  </h1>
+  
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2023/03/11/%E5%BC%82%E6%9E%84%E6%A8%A1%E5%9E%8B%E7%BB%9F%E4%B8%80%E5%8C%96%E6%96%B9%E6%B3%95/" class="article-date">
+  <time datetime="2023-03-11T12:24:04.000Z" itemprop="datePublished">2023-03-11</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+        <h1 id="异构模型统一化方法（heterogeneous-multi-agent）"><a href="#异构模型统一化方法（heterogeneous-multi-agent）" class="headerlink" title="异构模型统一化方法（heterogeneous multi-agent）"></a>异构模型统一化方法（heterogeneous multi-agent）</h1><p>搜索关键词：异构多智能体编队控制  UAV与USV、UGV  heterogeneous multi-agent fotmation control </p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>​        编队控制中一大分支是异构系统的编队控制。由于单个类型的多智能体能够执行的任务有限，又各自有各自的缺点。因此，异构系统的编队开始受到研究学者的关注。如无人机（UAV）和无人车(UGV)的陆空组合编队，又或者如无人艇（USV）和无人机的海空编队。</p>
+<p>​		但在进行编队控制之前，面临着一个相当重要需要解决的问题。异构说明系统的模型不相同，不相同的话如何进行控制器的设计那？这显然是不切实际的。</p>
+<span id="more"></span>
+
+<p>​		在经过文献检索和阅读后，我发现尽管对系统的控制方法、具体系统不行，但进行控制器设计之前，都将系统转换为统一的<strong>一阶积分器模型</strong>或者<strong>二阶积分器模型</strong>。甚至有的大牛论文上来直接就展示转换好的模型，到具体实验时，才用UAV、USV等具体的模型仿真实验[1]。同时我在经典的著作《FORMATION CONTROL OF Multi-Agent Systems：A Graph Rigidity Approach》中也看到作者专门针对一阶积分器和二阶积分器模型的编队控制进行了两章的说明[2]。不过我还没看，如有相关的知识，在我看后回来补充。</p>
+<p>​		下面举个例子说明系统是如何通过转换为积分器模型从而实现异构模型的统一化的。</p>
+<p>在文献[3]中针对UGV、UAV的异构编队控制进行控制器的设计。</p>
+<h2 id="UGV模型"><a href="#UGV模型" class="headerlink" title="UGV模型"></a>UGV模型</h2><p>$$<br>\begin{array}{l}<br>\dot{p}<em>{x i}(t)&#x3D;V</em>{i}(t) \cos \theta_{i}(t), \<br>\dot{p}<em>{y i}(t)&#x3D;V</em>{i}(t) \sin \theta_{i}(t), \<br>\dot{\theta}<em>{i}(t)&#x3D;\omega</em>{i}(t), \<br>\dot{V}<em>{i}(t)&#x3D;\frac{F</em>{i}(t)}{M_{r i}}, \<br>\dot{\omega}<em>{i}(t)&#x3D;\frac{\tau</em>{i}(t)}{J_{r i}},<br>\end{array}\tag{1}<br>$$</p>
+<p>​		其中$p_i(t)&#x3D;[p_{xi}(t)  ,p_{yi}(t)]^T$是第$i$个UGV的位置，$V_i(t)$是线速度，$w_i(t)$是角速度，$\theta_i(t)$是第$i$个UGV的方位角，$M_{ri}$是UGV质量，$J_{ri}$是转动惯量，$\tau_i$是UGV的输入扭矩，$F_i(t)$是输入力。</p>
+<p>​		由于非完整约束，系统状态矩阵的行列式为零。为了解决这个问题，人们认为机器人的前端必须在队形中。机器人的前点可定义为手点<br>$$<br>p_{xi}^h(t)&#x3D;p_{xi}(t)+L_rcos\theta_i(t),\<br>p_{yi}^h(t)&#x3D;p_{yi}(t)+L_rsin\theta_i(t)\​\tag{2}<br>$$</p>
+<h2 id="UAV模型"><a href="#UAV模型" class="headerlink" title="UAV模型"></a>UAV模型</h2><p>$$<br>\begin{aligned}<br>\ddot{p}<em>{x i}(t)&#x3D; &amp; \left(\cos \phi</em>{i}(t) \sin \theta_{i}(t) \cos \psi_{i}(t)\right. \<br>&amp; \left.+\sin \phi_{i}(t) \sin \psi_{i}(t)\right) \frac{U_{1}^{i}}{M_{q i}}, \<br>\ddot{p}<em>{y i}(t)&#x3D; &amp; \left(\cos \phi</em>{i}(t) \sin \theta_{i}(t) \sin \psi_{i}(t)\right. \<br>&amp; \left.-\sin \phi_{i}(t) \cos \psi_{i}(t)\right) \frac{U_{1}^{i}}{M_{q i}}, \<br>\ddot{p}<em>{z i}(t)&#x3D; &amp; -g+\left(\cos \phi</em>{i}(t) \cos \theta_{i}(t)\right) \frac{U_{1}^{i}}{M_{q}}, \<br>\ddot{\phi}<em>{i}(t)&#x3D; &amp; \dot{\theta}</em>{i}(t) \dot{\psi}<em>{i}(t)\left(\frac{I</em>{y}-I_{z}}{I_{x}}\right)-\frac{J_{q}}{I_{x}} \dot{\theta}<em>{i}(t) \Omega^{i}+\frac{I</em>{q}}{I_{x}} U_{2}^{i}, \<br>\ddot{\theta}<em>{i}(t)&#x3D; &amp; \dot{\phi}</em>{i}(t) \dot{\psi}<em>{i}(t)\left(\frac{I</em>{z}-I_{x}}{I_{y}}\right)-\frac{J_{q}}{I_{y}} \dot{\phi}<em>{i}(t) \Omega^{i}+\frac{l</em>{q}}{I_{y}} U_{3}^{i}, \<br>\ddot{\psi}<em>{i}(t)&#x3D; &amp; \dot{\phi}</em>{i}(t) \dot{\theta}<em>{i}(t)\left(\frac{I</em>{x}-I_{y}}{I_{z}}\right)+\frac{1}{I_{z}} U_{4}^{i},<br>\end{aligned}\tag{3}<br>$$</p>
+<p>其中，$p_i(t)&#x3D;[p_{xi}(t),p_{yi}(t),p_{zi}(t)]^T$是第$i$个UAV的位置，$\phi_i(t)$是航向角，$\theta_i(t)$是俯仰角，$\psi_i(t)$是翻滚角。$I_x，I_y,I_z$是机体惯性，$M_q$是UAV质量，$J_q$是机身惯性，$L_q$是UAV长度，$\Omega^i$是第$i$个UAV的电机输入，$U$是控制输入。</p>
+<p>上面两种模型显然是不同的，没有办法直接设计控制器（针对具体问题，也不是说完全没有办法），因此需要进行模型的统一化</p>
+<h2 id="模型统一化"><a href="#模型统一化" class="headerlink" title="模型统一化"></a>模型统一化</h2><p>针对UGV模型中的公式(2)进行求导，得<br>$$<br>\left[\begin{array}{l}<br>\ddot{p}<em>{x i}^{h}(t) \<br>\ddot{p}</em>{y i}^{h}(t)<br>\end{array}\right]&#x3D;R\left(\theta_{i}(t)\right) T(t)\tag{4}<br>$$<br>其中<br>$$<br>\begin{array}{l}<br>R\left(\theta_{i}(t)\right)&#x3D;\left[\begin{array}{cc}<br>\cos \theta_{i}(t) &amp; -\sin \theta_{i}(t) \<br>\sin \theta_{i}(t) &amp; \cos \theta_{i}(t)<br>\end{array}\right], \<br>T(t)&#x3D;\left[\begin{array}{c}<br>\frac{F_{i}(t)}{M_{r i}}-L_{r} \omega_{i}^{2}(t) \<br>\frac{\tau_{i}(t) L_{r}}{J_{r i}}+V_{i}(t) \omega_{i}(t)<br>\end{array}\right] \tag{5}<br>\end{array}<br>$$<br>令$u_i(t)&#x3D;R(\theta_i(t))T(t)$,则：<br>$$<br>\left[\begin{array}{l}<br>\ddot{p}<em>{x i}^{h}(t) \<br>\ddot{p}</em>{y i}^{h}(t)<br>\end{array}\right]&#x3D;u_i(t)\tag{6}<br>$$<br>针对UAV模型，直接可令：<br>$$<br>\left[\begin{array}{l}<br>\ddot{p}<em>{x i}(t) \<br>\ddot{p}</em>{y i}(t)\<br>\ddot{p}<em>{z i}(t)<br>\end{array}\right]&#x3D;\left[\begin{array}{l}<br>u</em>{x i}(t) \<br>u_{y i}(t)\<br>u_{z i}(t)\<br>\end{array}\right]\tag{7}<br>$$<br>通过公式(6)和公式(7)，可以发现UGV和UAV的模型都转化为了二阶积分器的形式，可以进一步地写成如下形式，从而进行进一步的编队控制器设计。<br>$$<br>\dot{\eta}<em>{i}(t)&#x3D;\epsilon_i(t)\<br>\dot{\epsilon}</em>{i}(t)&#x3D;U_i(t) \tag{8}<br>$$<br>其中$\eta_i$可以认为是位置，$\epsilon_i$认为是速度，$U_i$是控制输入。</p>
+<p>除此之外，在文献[4]中，系统也是这样处理的，不过进一步地说明了说明了为什么要改为加速度为控制输入的统一控制模型，其大致过程跟文献[3]类似。这里也贴出供参考。</p>
+<p><img src="/2023/03/11/%E5%BC%82%E6%9E%84%E6%A8%A1%E5%9E%8B%E7%BB%9F%E4%B8%80%E5%8C%96%E6%96%B9%E6%B3%95/Users/adi\AppData\Roaming\Typora\typora-user-images\image-20230310161549282.png" alt="image-20230310161549282"></p>
+<h2 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h2><p>[1] Hua Y , Dong X , Hu G , et al. Distributed Time-Varying Output Formation Tracking for Heterogeneous Linear Multiagent Systems With a Nonautonomous Leader of Unknown Input[J]. IEEE Transactions on Automatic Control, 2019, 64(10):4292-4299.</p>
+<p>[2] M.d. Queiroz,et al.Formation Control of Multi-Agent Systems: A Graph Rigidity Approach[M].Willey.2019.</p>
+<p>[3] Rahimi R , Abdollahi F , Naqshi K . Time-varying formation control of a collaborative heterogeneous multi agent system[J]. Robotics and Autonomous Systems, 2014(62-12).</p>
+<p>[4] 闫茂德, 周小强, 张逊逊,等. 关于异构无人器地空联合编队控制仿真研究[J]. 计算机仿真, 2016(10):5.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://adi-lee.github.io/2023/03/11/%E5%BC%82%E6%9E%84%E6%A8%A1%E5%9E%8B%E7%BB%9F%E4%B8%80%E5%8C%96%E6%96%B9%E6%B3%95/" data-id="clwlubo030005a8kk8vdy7rmn" class="article-share-link">
+        Share
+      </a>
+      
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2024/05/25/hello-world/" class="article-nav-link">
+    <strong class="article-nav-caption">Newer</strong>
+    <div class="article-nav-title">
+      
+      Hello World
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2023/02/05/Lasalle%E6%8B%89%E5%A1%9E%E5%B0%94%E4%B8%8D%E5%8F%98%E9%9B%86%E5%8E%9F%E7%90%86%E8%A7%A3%E8%AF%BB%EF%BC%88%E5%8C%85%E5%90%AB%E5%BE%84%E5%90%91%E6%97%A0%E7%95%8C%E6%80%A7%E7%9A%84%E8%A7%A3%E8%AF%BB%EF%BC%89/" class="article-nav-link">
+    <strong class="article-nav-caption">Older</strong>
+    <div class="article-nav-title">Lasalle拉塞尔不变集原理解读（包含径向无界性的解读）</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '2c4459cd8b921dbbe92d',
+    clientSecret: 'fac51ebfc11c6b641887cb846b954f19f08a8def',
+    repo: 'gitalk-of-blog',
+    owner: 'adi-lee',
+    admin: ['adi-lee'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>李梦迪的网页博客 &copy; 2024</li>
+      
+        <li>
+          
+            <a href="https://beian.miit.gov.cn/" target="_blank"></a>
+            
+        </li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+    <p><ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt tooltip" data-tooltip="UV"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark tooltip" data-tooltip="PV"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul></p>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="李梦迪的网页博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>

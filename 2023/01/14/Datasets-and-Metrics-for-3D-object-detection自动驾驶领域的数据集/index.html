@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="好事总会发生在下个转弯">
+  
+  <title>
+    Datasets-and-Metrics-for-3D-object-detection自动驾驶领域的数据集 |
+    
+    李梦迪的网页博客
+  </title>
+  <!-- Icon -->
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <main class="content">
+    <section class="outer">
+  <article id="post-Datasets-and-Metrics-for-3D-object-detection自动驾驶领域的数据集" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+      
+  
+  <h1 class="article-title" itemprop="name">
+    Datasets-and-Metrics-for-3D-object-detection自动驾驶领域的数据集
+  </h1>
+  
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2023/01/14/Datasets-and-Metrics-for-3D-object-detection%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E9%A2%86%E5%9F%9F%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/" class="article-date">
+  <time datetime="2023-01-14T08:09:51.000Z" itemprop="datePublished">2023-01-14</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+<div class="tocbot"></div>
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+      
+        <p>@[TOC](Datasets and Metrics for 3D object detection自动驾驶领域的数据集)</p>
+<p>主流多模态数据集的比较如下表：<br><img src="https://img-blog.csdnimg.cn/31407e70173e4470bb17a70da66c7d00.png#pic_center" alt="主流多模态数据集的比较"></p>
+<span id="more"></span>
+<h1 id="KITTI"><a href="#KITTI" class="headerlink" title="KITTI"></a>KITTI</h1><p>自动驾驶领域最早的数据集之一，该数据集提供立体彩色图像，激光雷达点云和GPS坐标。该数据集支持多种任务，包括立体匹配，视觉里程计，3D跟踪和3D目标检测等。</p>
+<p>该数据使用搭载64线激光雷达、4个相机和GPS&#x2F;IMU组合系统的车进行收集数据。拥有包含城市、住宅和道路的超20个场景。</p>
+<p>KITTI标注了汽车”，“面包车”，“卡车”，“行人”，“人(坐着)”，“骑自行车的人”，“有轨电车”和“杂项”。</p>
+<p>同时为了针对多模式检测，KITTI开发了KITTI360，该数据集带有更丰富的传感器信息，并且360度标注。</p>
+<p>mAP是常用的目标检测指标，mAP(mean Average Precision)，在这里不做展开。</p>
+<h1 id="NuScenes"><a href="#NuScenes" class="headerlink" title="NuScenes"></a>NuScenes</h1><p>具有地面真实标签的自动驾驶领域最大数据集之一。包括700个训练场景、150个验证场景和150个测试场景。</p>
+<p>该数据集使用32线激光雷达、6个相机，提供了360度视野内的23个种类的标注。是第一个提供雷达数据的自动驾驶数据集，装备了5个雷达传感器</p>
+<h1 id="Waymo-Open-Dataset"><a href="#Waymo-Open-Dataset" class="headerlink" title="Waymo Open Dataset"></a>Waymo Open Dataset</h1><p>装备5个激光雷达传感器、5个针孔摄像机，支持领域适应（Domain adaptation ）</p>
+<h1 id="other-Datasets"><a href="#other-Datasets" class="headerlink" title="other Datasets"></a>other Datasets</h1><h2 id="ApolloScape"><a href="#ApolloScape" class="headerlink" title="ApolloScape"></a>ApolloScape</h2><p>包含了来自中国4个不同地区的天气情况。数据使用搭载了两个激光雷达传感器、6个摄像机和一个IMU&#x2F;GNSS联合系统的SUV进行获取。它支持各种自动驾驶任务，如场景解析，车道分割，轨迹预测，目标检测，跟踪等。</p>
+<p>评价指标与KITTI相同</p>
+<h2 id="H3D"><a href="#H3D" class="headerlink" title="H3D"></a>H3D</h2><p>该数据集关注城市拥挤的交通场景。数据使用3台260度的视场相机和一台64线的激光雷达收集数据</p>
+<h2 id="Argoverse"><a href="#Argoverse" class="headerlink" title="Argoverse"></a>Argoverse</h2><p>它使用两个32通道激光雷达、七个环绕视摄像头和两个立体摄像头收集数据</p>
+<h2 id="AIODrive"><a href="#AIODrive" class="headerlink" title="AIODrive"></a>AIODrive</h2><p>它综合来自多个常用传感器的数据，包括3个高密度激光雷达，一个Velodyne-64激光雷达，5个高分辨率RGB相机，5个高分辨率深度相机，4个雷达，一个IMU和GPS系统。它还合成了一些不利的场景，如恶劣的天气条件或车祸。</p>
+<p>上述数据集都需要进行数据标注，而高质量的数据标注是一项花费巨大的任务。现如今，也有学者使用迁移学习技术减少对于地面标签的依赖性。</p>
+<p>如果觉得我写的不错，请给我一个免费的赞，如有错误，也欢迎向我反馈。<br>参考文献：<br>Wang Y, Mao Q, Zhu H, et al. Multi-modal 3d object detection in autonomous driving: a survey[J]. arXiv preprint arXiv:2106.12735, 2021.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://adi-lee.github.io/2023/01/14/Datasets-and-Metrics-for-3D-object-detection%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6%E9%A2%86%E5%9F%9F%E7%9A%84%E6%95%B0%E6%8D%AE%E9%9B%86/" data-id="clwlubnzz0002a8kk2nycay1z" class="article-share-link">
+        Share
+      </a>
+      
+    </footer>
+
+  </div>
+
+  
+  
+<nav class="article-nav">
+  
+  <a href="/2023/01/16/video1/" class="article-nav-link">
+    <strong class="article-nav-caption">Newer</strong>
+    <div class="article-nav-title">
+      
+      video1
+      
+    </div>
+  </a>
+  
+  
+  <a href="/2023/01/14/hexo%E4%B8%8Egithub%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E3%80%81%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98%E3%80%81%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD/" class="article-nav-link">
+    <strong class="article-nav-caption">Older</strong>
+    <div class="article-nav-title">hexo与github搭建博客、修改主题、更新内容及解决图片无法加载</div>
+  </a>
+  
+</nav>
+
+  
+
+  
+  
+  
+<div class="gitalk" id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+
+<script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+
+<script type="text/javascript">
+  var gitalk = new Gitalk({
+    clientID: '2c4459cd8b921dbbe92d',
+    clientSecret: 'fac51ebfc11c6b641887cb846b954f19f08a8def',
+    repo: 'gitalk-of-blog',
+    owner: 'adi-lee',
+    admin: ['adi-lee'],
+    // id: location.pathname,      // Ensure uniqueness and length less than 50
+    id: md5(location.pathname),
+    distractionFreeMode: false,  // Facebook-like distraction free mode
+    pagerDirection: 'last'
+  })
+
+  gitalk.render('gitalk-container')
+</script>
+
+  
+
+</article>
+</section>
+    <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>李梦迪的网页博客 &copy; 2024</li>
+      
+        <li>
+          
+            <a href="https://beian.miit.gov.cn/" target="_blank"></a>
+            
+        </li>
+      
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>theme  <a target="_blank" rel="noopener" href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+    <p><ul class="list-inline">
+  
+  <li><i class="fe fe-smile-alt tooltip" data-tooltip="UV"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+  <li><i class="fe fe-bookmark tooltip" data-tooltip="PV"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul></p>
+  </div>
+</footer>
+  </main>
+  <aside class="sidebar">
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/hexo.svg" alt="李梦迪的网页博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/gallery">相册</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="fe fe-feed"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+<script src="/js/tocbot.min.js"></script>
+
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto',
+  });
+</script>
+
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+
+</html>
