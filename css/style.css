@@ -1090,7 +1090,6 @@ img {
   transition: all 0.3s ease-in-out;
 }
 .content {
-  width: 80%;
   position: relative;
   z-index: 1;
   margin-right: 0;
@@ -1099,7 +1098,6 @@ img {
   transform: translateX(-10rem);
 }
 .sidebar {
-  width: 20%;
   position: fixed;
   z-index: 9;
   top: 0;
