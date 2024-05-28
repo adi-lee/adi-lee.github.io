@@ -733,10 +733,10 @@ html {
 body {
   margin: 0;
 }
-h1 {
+/* h1 {
   font-size: 2em;
   margin: 0.67em 0;
-}
+} */
 hr {
   box-sizing: content-box /* 1 */;
   height: 0 /* 1 */;
@@ -1090,6 +1090,7 @@ img {
   transition: all 0.3s ease-in-out;
 }
 .content {
+  width: 80%;
   position: relative;
   z-index: 1;
   margin-right: 0;
@@ -1098,6 +1099,7 @@ img {
   transform: translateX(-10rem);
 }
 .sidebar {
+  width: 20%;
   position: fixed;
   z-index: 9;
   top: 0;
